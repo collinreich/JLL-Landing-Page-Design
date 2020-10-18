@@ -1,0 +1,1393 @@
+/**
+*   Styles are divided by section, each section is
+*   given a description of elements within the section.
+*   Each section also is organized top to bottom by 
+*   elements that appear in layout first. Styles are also
+*   divided into 3 media queries: mobile, tablet, and desktop.
+*   Each query should mirror the given mockup on Zeplin.
+*
+*   TODO: Parts of the code that could/should be improved are
+*       identified in each section.
+*/
+
+/*  Universal styles
+    ==============================  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "search"
+    "featured"
+    "locations"
+    "contact"
+    "privacy"
+    "footer";
+  grid-gap: 10px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.red-text {
+  color: red;
+}
+
+/*  ==============================
+            MOBILE SECTION
+    ==============================  */
+
+/*  Start of header section
+    ==============================  */
+
+/**
+*   Header section contains the
+*   elements in the top navigation bar.
+*   including the logo, and two buttons.
+*/
+
+.header {
+  grid-area: header;
+  width: 100%;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header img {
+  flex-basis: auto;
+  width: 80px;
+  margin-left: 9px;
+  margin-top: 25px;
+  margin-bottom: 19px;
+  justify-self: flex-start;
+}
+
+.btn-group button {
+  background-color: #e30613;
+  border: thin;
+  color: white;
+  padding: 14px;
+  width: 44px;
+  float: right;
+  font-size: 1.1em;
+}
+
+.btn-group button:first-child {
+  padding: 11px;
+  font-size: 1.375em;
+}
+
+.btn-group {
+  margin-right: 20px;
+}
+
+.btn-group i {
+  font-weight: 501;
+  font-size: 1em;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none;
+}
+
+.btn-group button:hover {
+  background-color: #ce2323;
+}
+
+.btn-group button:not(:first-child) {
+  border-right: solid rgba(0, 0, 0, 0.1);
+}
+
+/*  Start of search section
+    ==============================  */
+
+/**
+*   Search section contains everything
+*   between the header and the "Featured
+*   Properties heading. This includes two
+*   headers, an image, and the main search
+*   bar.
+*
+*   TODO: Fix the image to blend with the
+*       white page background, rather than
+*       just blurring edges. 
+*/
+
+.search {
+  grid-area: search;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "search-h1 office"
+    "search-h3 search-h3"
+    "search-bar search-bar";
+  background-color: #ffffff;
+}
+
+.search-h1 h1 {
+  grid-area: search-h1;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: left;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.09;
+  letter-spacing: normal;
+  color: #000000;
+  margin-left: 10px;
+  margin-bottom: 10.13%;
+  margin-top: 4.8%;
+}
+
+.search-h3 {
+  grid-area: search-h3;
+  max-width: 85%;
+  font-size: 1em;
+  font-weight: 600;
+  font-stretch: normal;
+  text-align: left;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin: 2.67%;
+}
+
+.search-bar {
+  grid-area: search-bar;
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 94%;
+  box-shadow: 0 6px 15px 1px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar input[type="text"] {
+  width: 72.32%;
+  background-color: #ffffff;
+  padding-left: 0.625em;
+  border: thin;
+}
+
+.search-bar input[type="submit"] {
+  width: 27.68%;
+  background-color: #e30613;
+  border: thin;
+  color: white;
+  padding: 1.125em 1.375em 1em;
+  float: right;
+  font-size: 1.125em;
+}
+
+.search-img {
+  position: relative;
+  grid-area: office;
+  background-image: url(images/office.jpg);
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  box-shadow: 0px 0px 8px 6px white inset;
+}
+
+/*  Start of featured section
+    ==============================  */
+
+/**
+*   Featured section contains a slideshow
+*   with pictures of a "featured" property,
+*   property information, a star button, and
+*   a colored button with different leasing 
+*   options.
+*
+*   TODO: Star should turn yellow when clicked.
+*/
+
+.featured {
+  grid-area: featured;
+  margin-top: 32px;
+}
+
+.featured h2 {
+  font-size: 1.5em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-left: 10px;
+  margin-bottom: 3.2%;
+}
+
+.featured-item {
+  display: block;
+}
+
+.featured-item:not(:first-child) {
+  display: none;
+}
+
+.feat-slide-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.feat-slide-prev,
+.feat-slide-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -1.375em;
+  padding: 1em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.125em;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.feat-slide-prev:hover,
+.feat-slide-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.feat-slide-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.feat-slide-prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.featured p {
+  margin-left: 10px;
+}
+
+.featured-item img {
+  width: 100%;
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.feat-type {
+  font-size: 1em;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  text-decoration: none;
+  color: #404040;
+  margin-top: 2.13%;
+}
+
+.fa-star {
+  float: right;
+  margin: 8px;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.feat-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #404040;
+}
+
+.feat-address {
+  font-size: 1em;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: normal;
+  color: #404040;
+  margin-bottom: 1.87%;
+}
+
+.feat-price-head {
+  font-size: 0.9375em;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: normal;
+  color: #626468;
+  margin-left: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.feat-price {
+  font-size: 1.25em;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #404040;
+}
+
+.featured-item button {
+  font-size: 0.85em;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 10.5px;
+  float: right;
+  border: thin;
+  max-width: 38%;
+  min-width: 33.43%;
+  padding: 0.5% 2.5%;
+  margin-right: 1.87%;
+}
+
+.sublease-btn {
+  background-color: #789852;
+}
+
+/*  Start of location section
+    ==============================  */
+
+/**
+*   Location section conatains a couple
+*   descriptive headers, as well as a clickable
+*   image and label for each location. Also 
+*   contains a button at the bottom to show all
+*   locations.
+*/
+
+.locations {
+  grid-area: locations;
+  margin-left: 10px;
+  margin-top: 46px;
+}
+
+.locations h2 {
+  font-size: 1.5em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-bottom: 1.07%;
+}
+
+.locations p {
+  font-size: 1em;
+  margin-right: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.locations-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  max-width: 60.8%;
+  margin-top: 32px;
+}
+
+.location-item img {
+  width: 100%;
+  margin-bottom: 1.75%;
+  border-radius: 4px;
+  border: solid 1px #d8d8d9;
+  background-color: #d8d8d8;
+  margin-top: 7.02%;
+}
+
+.location-item a {
+  font-size: 1em;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-bottom: 7.89%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.locations-container button {
+  font-size: 1em;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 33px;
+  background-color: #e30613;
+  width: 100%;
+  padding: 0.625em;
+  border: thin;
+}
+
+/*  Start of contact section
+    ==============================  */
+
+/**
+*   Contact section contains a couple headers,
+*   and a form containing fields asking for
+*   name, email, city, a select elements for state.
+*   Also contains radio button for specifying 
+*   interest in property, as well as checkbox
+*   specifying asset types of property. Finally,
+*   contains a textbox for comments and a submit
+*   button.
+*/
+
+.contact {
+  grid-area: contact;
+  margin-left: 10px;
+  margin-right: 6.13%;
+  margin-top: 58px;
+  max-width: 100%;
+}
+
+.contact h2 {
+  font-size: 1.5em;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.contact p {
+  font-size: 1em;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+form {
+  margin-top: 5.1%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 37%;
+  grid-template-areas:
+    "prsn prsn prsn"
+    "city city state"
+    "property-intent . ."
+    "property-type property-type ."
+    "comments comments comments"
+    "submit submit .";
+}
+
+.prsn {
+  grid-area: prsn;
+}
+
+.city {
+  grid-area: city;
+  margin-right: 7px;
+}
+
+.state {
+  grid-area: state;
+}
+
+.contact label {
+  font-size: 1em;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #404040;
+}
+
+.contact input[type="text"],
+select {
+  font-size: 1em;
+  border: solid 1px #898b8e;
+  background-color: #ffffff;
+  padding: 0.5625em;
+  margin-top: 8px;
+  margin-bottom: 33px;
+  width: 100%;
+}
+
+.contact select {
+  padding: 0.5em;
+}
+
+.radio-container {
+  grid-area: property-intent;
+}
+
+.radio-column {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-column label {
+  font-weight: 500;
+}
+
+.radio-btn {
+  display: inline-block;
+  padding-left: 24px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 25px;
+}
+
+.radio-btn input {
+  display: none;
+}
+
+.radio-mark {
+  width: 1.125em;
+  height: 1.125em;
+  border: solid 1px #979797;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.radio-btn:hover .radio-mark {
+  background-color: rgb(231, 231, 231);
+}
+
+.radio-btn input:checked + .radio-mark {
+  background-color: lightskyblue;
+}
+
+.radio-btn input:checked + .radio-mark:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: white;
+}
+
+.check-container {
+  grid-area: property-type;
+}
+
+.check-column-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-top: 8px;
+}
+
+.check-column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.check-column label {
+  font-weight: 500;
+}
+
+.check-column label:last-child {
+  margin-bottom: 0px;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox {
+  display: inline-block;
+  padding-left: 24px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 33px;
+  margin-bottom: 26px;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: solid 1px #979797;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.checkbox input:checked + .checkmark {
+  background-color: lightskyblue;
+}
+
+.checkbox input:hover + .checkmark {
+  background-color: rgb(231, 231, 231);
+}
+
+.checkbox input:checked:hover + .checkmark {
+  background-color: lightskyblue;
+}
+
+.checkbox input:checked + .checkmark:after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.comments {
+  margin-top: 33px;
+  grid-area: comments;
+}
+
+.contact textarea {
+  margin-top: 8px;
+  height: 87px;
+  border: solid 1px #898b8e;
+  background-color: #ffffff;
+  resize: none;
+  width: 100%;
+  padding: 5px;
+}
+
+.contact input[type="submit"] {
+  grid-area: submit;
+  background-color: #e30613;
+  padding: 11px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  border: thin;
+  margin-top: 30px;
+}
+
+input[type="submit"]:hover {
+  background-color: #ce2323;
+}
+
+/*  Start of privacy section
+    ==============================  */
+
+/**
+*   Privacy section contains a single p
+*   element with a privacy notice.
+*/
+
+.privacy {
+  grid-area: privacy;
+  margin-left: 11px;
+  margin-top: 33px;
+  margin-right: 3px;
+}
+
+.privacy p a {
+  font-size: 0.9375em;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.privacy a {
+  font-weight: bold;
+}
+
+/*  Start of footer section
+    ==============================  */
+
+/**
+*   Footer section contains a header,
+*   two menus each containing several links,
+*   a social media follow section with icons,
+*   and some legal information at the bottom
+*   in the form of a flexbox with links.
+*/
+
+.footer {
+  grid-area: footer;
+  color: white;
+  background-color: black;
+  text-align: center;
+  margin-top: 33px;
+  padding: 15px 18px;
+  line-height: 2.29em;
+  font-size: 0.875em;
+}
+
+.footer img {
+  display: none;
+}
+
+.footer h2 {
+  margin-bottom: 15px;
+}
+
+.footer hr {
+  border: 1px solid gray;
+}
+
+.footer-menu-wrapper {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.footer ul {
+  list-style: outside none;
+  margin-bottom: 1em;
+}
+
+.menu1 a,
+.menu2 a {
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  font-weight: lighter;
+}
+
+.social-icons {
+  column-count: unset;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-content hr {
+  border: 1.25px solid gray;
+}
+
+.legal-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: #b1b2b4;
+  text-align: left;
+  padding-top: 5px;
+}
+
+.legal-wrapper p {
+  font-size: 0.85em;
+}
+
+.legal-wrapper ul {
+  list-style: outside none;
+  padding-left: 0;
+  margin-bottom: 0.5em;
+}
+
+.legal-wrapper li {
+  text-decoration: none;
+  display: inline-block;
+  color: #b1b2b4;
+  padding-right: 8px;
+  margin-right: 8px;
+  line-height: 1em;
+  border-right: 1px solid #b1b2b4;
+}
+
+.legal-wrapper a {
+  text-decoration: none;
+  color: #b1b2b4;
+  font-size: 0.85em;
+}
+
+.legal-wrapper li:last-child {
+  border-right: none;
+}
+
+/*  ==============================
+            TABLET SECTION
+    ==============================  */
+
+@media (min-width: 768px) {
+  /*  Start of header section
+        ==============================  */
+
+  .header img {
+    width: 107px;
+    margin-left: 23px;
+    margin-top: 27px;
+    margin-bottom: 29px;
+  }
+
+  .btn-group button {
+    width: 59px;
+  }
+
+  .btn-group {
+    margin-right: 31px;
+  }
+
+  /*  Start of search section
+        ==============================  */
+
+  /**
+    *   TODO: Fix the sizing and blending of the
+    *       image, (as mentioned above).
+    */
+
+  .search {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "search-h1 search-h1 office"
+      "search-h3 search-h3 office"
+      "search-bar search-bar search-bar";
+  }
+
+  .search-h1 h1 {
+    font-size: 3em;
+    line-height: 1.08;
+    margin-left: 25px;
+    margin-top: 55px;
+    margin-bottom: 0px;
+    width: 351px;
+  }
+
+  .search-h3 {
+    font-size: 1.125em;
+    margin-left: 25px;
+    margin-top: 24px;
+    margin-bottom: 31px;
+  }
+
+  .search-bar {
+    margin-left: 25px;
+    max-width: 68.75%;
+  }
+
+  .search-bar input[type="text"] {
+    width: 81.44%;
+    font-size: 1.125em;
+    padding-left: 1.56em;
+  }
+
+  .search-bar input[type="submit"] {
+    width: 18.56%;
+  }
+
+  /*  Start of featured section
+        ==============================  */
+
+  .featured {
+    margin-top: 59px;
+  }
+
+  .featured h2 {
+    font-size: 2.25em;
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+
+  .featured-container {
+    margin-left: 26px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+  }
+
+  .featured-item {
+    min-width: 329px;
+    flex-basis: 42.84%;
+    margin-right: 18px;
+    margin-bottom: 18px;
+    border-radius: 4px;
+    border: solid 1px #d8d8d9;
+    padding-bottom: 12px;
+  }
+
+  .featured-item:not(:first-child) {
+    display: block;
+  }
+
+  .feat-type {
+    font-size: 0.9375em;
+    margin-top: 7px;
+  }
+
+  .fa-star {
+    margin-top: 2px;
+  }
+
+  .feat-price-head {
+    text-decoration: none;
+  }
+
+  .feat-price {
+    font-size: 1.15em;
+  }
+
+  .sale-btn {
+    background-color: #4e89a3;
+  }
+
+  .lease-btn {
+    background-color: #885a98;
+  }
+
+  /*  Start of location section
+        ==============================  */
+
+  .locations {
+    margin-left: 25px;
+    margin-top: 54px;
+  }
+
+  .locations h2 {
+    font-size: 2.25em;
+    margin-bottom: 10px;
+  }
+
+  .locations p {
+    font-size: 1.125em;
+    margin-right: 32px;
+  }
+
+  .locations-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: space-around;
+    max-width: none;
+  }
+
+  .location-item {
+    width: 30%;
+    min-width: 228px;
+    margin-right: 1.8%;
+  }
+
+  .location-item a {
+    margin-bottom: 7.89%;
+  }
+
+  .locations-container button {
+    align-self: center;
+    width: 30%;
+    margin-top: 0px;
+  }
+
+  /*  Start of contact section
+        ==============================  */
+
+  .contact {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 59px;
+  }
+
+  .contact h2 {
+    font-size: 2.25em;
+  }
+
+  .contact p {
+    font-size: 1.125em;
+    margin-top: 10px;
+  }
+
+  form {
+    margin-top: 31px;
+    padding-top: 31px;
+    padding-bottom: 32px;
+    padding-left: 19px;
+    padding-right: 26px;
+    border: solid 1px #979797;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "prsn prsn prsn property-intent ."
+      "prsn prsn prsn property-intent ."
+      "prsn prsn prsn property-type property-type"
+      "city city state property-type property-type"
+      "comments comments comments comments comments"
+      ". . . submit submit";
+  }
+
+  .comments {
+    margin-top: 0px;
+  }
+
+  .contact textarea {
+    height: 66px;
+  }
+
+  .radio-container {
+    margin-left: 50%;
+  }
+
+  .check-container {
+    margin-left: 25%;
+  }
+
+  .contact input[type="submit"] {
+    margin-left: 33%;
+    font-weight: 500;
+    font-size: 1em;
+  }
+
+  /*  Start of privacy section
+        ==============================  */
+
+  .privacy {
+    margin-left: 28px;
+    margin-top: 34px;
+    margin-right: 25px;
+  }
+
+  /*  Start of footer section
+        ==============================  */
+
+  .footer {
+    margin-top: 10px;
+    padding: 15px 28px;
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  .footer h2 {
+    font-size: 2.25em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .footer-menu-wrapper {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-bottom: 40px;
+  }
+
+  .footer-img {
+    flex-grow: 1;
+    margin-right: 5%;
+  }
+
+  .footer-img img {
+    display: block;
+    width: 100px;
+    align-self: flex-start;
+  }
+
+  .footer-menu-wrapper ul {
+    column-count: 1;
+  }
+
+  .menu1,
+  .menu2 {
+    flex-grow: 2;
+  }
+
+  .follow {
+    flex-grow: 1;
+  }
+
+  .footer-content hr {
+    display: none;
+  }
+
+  .legal-wrapper {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .legal-wrapper a,
+  .legal-wrapper p {
+    font-size: 1em;
+  }
+
+  .legal-wrapper p {
+    line-height: 1em;
+  }
+}
+
+/*  ==============================
+            DESKTOP SECTION
+    ==============================  */
+
+/**
+*   TODO: Find out the best way to format
+*       things when between the tablet mockup
+*       and the desktop mockup. When it reaches
+*       the desktop media query, there is
+*       a huge ugly chunk of space on the right.
+*       It looks good when the sceen is at the
+*       full width of the mockup, but it looks
+*       ugly between 992px and 1440px.
+*/
+
+@media (min-width: 992px) {
+  /*  Start of header section
+        ==============================  */
+
+  .header img {
+    width: 133px;
+    margin-left: 54px;
+    margin-top: 44px;
+    margin-bottom: 44px;
+  }
+
+  .btn-group button {
+    padding: 20px;
+    width: 72px;
+    font-size: 1.625em;
+  }
+
+  .btn-group button:first-child {
+    padding: 12.75px 18px;
+    font-size: 2.3125em;
+  }
+
+  .btn-group {
+    margin-right: 81px;
+  }
+
+  /*  Start of search section
+        ==============================  */
+
+  .search {
+    margin-left: 3.75%;
+    margin-top: 18px;
+    grid-template-columns: 1fr 1fr 30%;
+    grid-template-areas:
+      "search-h1 search-h1 office"
+      "search-h3 search-h3 office"
+      "search-bar search-bar office";
+  }
+
+  .search-h1 {
+    grid-area: search-h1;
+    margin-left: 0px;
+  }
+
+  .search-h1 h1 {
+    min-width: 100%;
+    max-width: 100%;
+    width: initial;
+    font-size: 4.5em;
+    line-height: normal;
+    margin-bottom: 22px;
+    margin-left: 0px;
+  }
+
+  .search-h3 {
+    font-size: 1.6875em;
+    margin-bottom: 86px;
+    margin-left: 0px;
+  }
+
+  .search-bar {
+    max-width: 85%;
+    margin-left: 0px;
+  }
+
+  .search-bar input[type="text"] {
+    width: 87.17%;
+    padding-left: 1.5625em;
+  }
+
+  .search-bar input[type="submit"] {
+    min-width: 12.83%;
+    padding: 1em 1.375em;
+    font-size: 1.125em;
+  }
+
+  /*  Start of featured section
+        ==============================  */
+
+  .featured {
+    margin-top: 112px;
+    margin-left: 2.71%;
+  }
+
+  .featured h2 {
+    font-size: 2.5625em;
+    font-weight: 900;
+    margin-bottom: 19px;
+    margin-left: 0px;
+  }
+
+  .featured-container {
+    margin-left: 0px;
+  }
+
+  .featured-item {
+    width: 22.85%;
+    flex-basis: auto;
+    margin-right: 1.25%;
+  }
+
+  /*  Start of location section
+        ==============================  */
+
+  /**
+    *   TODO: Fix the button so that it is
+    *   removed from the regular flow of the
+    *   flexbox. At the very least, get it to
+    *   be on the right side. (I believe it is
+    *   trapped on the left becuase it is wrapping,
+    *   so trying to make it float or something
+    *   won't work.
+    */
+
+  .locations {
+    margin-left: 2.15%;
+    margin-top: 54px;
+  }
+
+  .locations h2 {
+    font-size: 2.5625em;
+    margin-bottom: 5px;
+  }
+
+  .locations p {
+    font-size: 1.375em;
+    margin-right: 32px;
+  }
+
+  .locations-container {
+    margin-top: 16px;
+  }
+
+  .location-item {
+    width: 15.83%;
+    flex-basis: auto;
+    margin-right: 4.17%;
+  }
+
+  .location-item a {
+    margin-bottom: 8px;
+  }
+
+  .locations-container button {
+    width: 15.83%;
+    margin-top: 48px;
+  }
+
+  /*  Start of contact section
+        ==============================  */
+
+  .contact {
+    margin-left: 2.71%;
+    margin-right: 4.65%;
+    margin-top: 54px;
+    background-image: url(images/gray-brush.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+  }
+
+  .contact h2 {
+    font-size: 2.5625em;
+  }
+
+  .contact p {
+    font-size: 1.375em;
+    margin-top: 5px;
+  }
+
+  form {
+    margin-top: 48px;
+    width: 55.69%;
+    float: right;
+    background-color: #ffffff;
+  }
+
+  /*  Start of privacy section
+        ==============================  */
+
+  .privacy {
+    margin-left: 2.15%;
+    margin-top: 53px;
+    margin-right: 2.57%;
+  }
+
+  /*  Start of footer section
+        ==============================  */
+
+  .footer {
+    padding-left: 3%;
+    padding-right: 5%;
+    margin-top: 79px;
+  }
+
+  .footer-menu-wrapper {
+    justify-content: space-evenly;
+  }
+
+  .footer h2 {
+    font-size: 2.5em;
+  }
+
+  .footer-img {
+    margin-right: 15px;
+  }
+
+  .menu1,
+  .menu2 {
+    column-count: 2;
+    margin-right: 15px;
+  }
+
+  .social-icons {
+    column-count: unset;
+  }
+}
