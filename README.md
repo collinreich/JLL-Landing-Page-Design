@@ -1,5 +1,6 @@
 # JLL-Landing-Page-Design
 
-Created a design for the landing page for the JLL real estate company.
+Converted a Zeplin mockup file to a static HTML/CSS page for 
+the design of the landing page for JLL Real Estate Company's website.
 
 This project was done for my mentorship/internship with iMack Software LLC.
